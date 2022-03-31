@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  meeting: one
+  meeting_name: MyString
+  start_date: 2022-03-31 14:20:19
+  end_date: 2022-03-31 14:20:19
+  attendees: MyString
+
+two:
+  meeting: two
+  meeting_name: MyString
+  start_date: 2022-03-31 14:20:19
+  end_date: 2022-03-31 14:20:19
+  attendees: MyString
