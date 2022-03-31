@@ -1,5 +1,5 @@
 class Meeting < ApplicationRecord
     has_many :booking
     
-    validates :meeting_name, :capacity, :floor, presense: true
+    validates :name, :capacity, :floor, presence: true
 end
