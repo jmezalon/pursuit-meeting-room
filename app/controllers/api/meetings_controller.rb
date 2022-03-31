@@ -21,7 +21,7 @@ class Api::MeetingsController < ApplicationController
     private  
 
     def meeting_params 
-        params.permit(:meeting_name, :capacity, :floor)
+        params.permit(:name, :capacity, :floor)
     end
 
     def find_room
