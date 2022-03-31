@@ -10,4 +10,5 @@ Rails.application.routes.draw do
     post "/bookings", to: "bookings#create"
     delete "/bookings/:id", to: "booking#destroy"
   end
+  get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 end
