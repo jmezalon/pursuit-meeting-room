@@ -2,7 +2,7 @@ class Api::BookingsController < ApplicationController
     before_action :find_booking, only: [:show, :destroy]
 
     def index
-        render json: Booking.all, status: :ok
+        render json: Booking.all.where("start_date >= ?", Date.today), status: :ok
     end
 
     def show
@@ -10,7 +10,7 @@ class Api::BookingsController < ApplicationController
     end
 
     def create
-        render json: Booking.create(booking_params), status: :created
+        render json: Booking.create!(booking_params), status: :created
     end
 
     def destroy 

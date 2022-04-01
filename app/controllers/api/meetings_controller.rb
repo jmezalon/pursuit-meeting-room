@@ -6,7 +6,7 @@ class Api::MeetingsController < ApplicationController
     end
 
     def create
-        meeting = Meeting.create(meeting_params)
+        meeting = Meeting.create!(meeting_params)
         render json: meeting, status: :created
     end
 
@@ -15,7 +15,7 @@ class Api::MeetingsController < ApplicationController
     end
 
     def show_bookings
-        render json: @room.bookings, status: :ok
+        render json: @room.bookings.where("start_date >= ?", Date.today), status: :ok
     end
 
     private  
