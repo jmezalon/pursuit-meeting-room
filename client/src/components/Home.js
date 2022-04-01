@@ -1,3 +1,5 @@
+import Navbar from "./Navbar";
+
 function Home() {
   return (
     <div className="home-container">
@@ -5,7 +7,7 @@ function Home() {
         <h1>Home</h1>
       </header>
       <main className="navbar-body-container">
-        <p>will have navbar here</p>
+        <Navbar />
       </main>
     </div>
   );
