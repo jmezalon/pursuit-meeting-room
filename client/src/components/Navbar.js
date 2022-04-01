@@ -6,11 +6,11 @@ function Navbar() {
       <NavLink exact to="/">
         Meeting Rooms
       </NavLink>
-      <div class="vl"></div>
+      <div className="vl"></div>
       <NavLink exact to="/bookings">
         Bookings
       </NavLink>
-      <div class="vl"></div>
+      <div className="vl"></div>
       <NavLink exact to="/meetingrooms/new">
         New Room
       </NavLink>

@@ -7,7 +7,9 @@ function Booking() {
         <h1>Bookings</h1>
       </header>
       <main className="navbar-body-container">
-        <Navbar />
+        <div className="app-nav-body-content">
+          <Navbar />
+        </div>
       </main>
     </div>
   );
