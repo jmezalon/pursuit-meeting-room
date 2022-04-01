@@ -2,6 +2,30 @@
     height: 100vh;
     overflow-y: scroll; 
     overflow-x: hidden;
+    background: #1C2FE4;
+  }
+
+  /* home css */
+
+  .page-indication > h1 {
+    background: #FF7701;
+    width: 30%;
+    height: 55px;
+    margin-top: 3%;
+    border-radius: 0 15px 15px 0;
+    color: white;
+    padding: 20px 0 20px 100px;
+    font-size: 3em;
+  }
+
+  .navbar-body-container {
+    background: white;
+    margin: 40px 100px;
+    width: 85%;
+    height: 150vh;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
   }
   
   
