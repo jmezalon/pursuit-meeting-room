@@ -35,7 +35,7 @@
     justify-content: space-between;
     align-items: center;
     height: 65px;
-    width: 70%;
+    width: 76%;
     border-radius: 10px;
     margin: 40px 0;
     padding: 2px;
@@ -52,12 +52,13 @@
     color: white;
     font-size: 1.7em;
     margin: auto;
+    width: 230px;
+    text-align: center;
 }
 
 nav a:hover,
 nav a:active {
     color: black;
-    text-decoration: underline;
 }
 
 .navbar-container > a.active {
@@ -65,8 +66,8 @@ nav a:active {
     background: white;
     border-radius: 5px;
     padding: 15px 20px;
-    width: 230px;
-    margin: 0 6px 0 3px;
+    width: 275px;
+    margin: 0 6px 0 6px;
     text-align: center;
 }
 

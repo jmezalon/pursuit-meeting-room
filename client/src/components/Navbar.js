@@ -11,7 +11,7 @@ function Navbar() {
         Bookings
       </NavLink>
       <div class="vl"></div>
-      <NavLink exact to="meetingrooms/new">
+      <NavLink exact to="/meetingrooms/new">
         New Room
       </NavLink>
     </nav>

@@ -1,10 +1,10 @@
 import Navbar from "./Navbar";
 
-function Home() {
+function Newroom() {
   return (
     <div className="page-container">
       <header className="page-indication">
-        <h1>Home</h1>
+        <h1>New Room</h1>
       </header>
       <main className="navbar-body-container">
         <Navbar />
@@ -13,4 +13,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Newroom;
