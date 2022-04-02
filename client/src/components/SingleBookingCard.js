@@ -1,16 +1,28 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import Navbar from "./Navbar";
 
-function SingleBookingCard({ formatDate }) {
+function SingleBookingCard({ formatDate, onCancelMeeting }) {
   const [booking, setBooking] = useState({});
+  const [cancelClick, setCancelClick] = useState(false);
   const params = useParams();
+  const history = useHistory();
 
   useEffect(() => {
     fetch(`/api/bookings/${params.id}`)
       .then((r) => r.json())
       .then(setBooking);
   }, [params.id]);
+
+  function handleCancelBooking() {
+    fetch(`/api/bookings/${params.id}`, {
+      method: "DELETE",
+    }).then(() => {
+      onCancelMeeting(params.id);
+      setCancelClick(false);
+      history.goBack();
+    });
+  }
 
   return (
     <div className="page-container">
@@ -42,7 +54,15 @@ function SingleBookingCard({ formatDate }) {
               <span>Floor: {booking.meeting && booking.meeting.floor}</span>
             </section>
 
-            <button>Cancel</button>
+            {!cancelClick ? (
+              <button onClick={() => setCancelClick(true)}>Cancel</button>
+            ) : (
+              <>
+                <p>Are you sure?</p>
+                <button onClick={handleCancelBooking}>Yes</button>
+                <button onClick={() => setCancelClick(false)}>No</button>
+              </>
+            )}
           </div>
         </div>
       </main>
