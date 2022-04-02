@@ -15,7 +15,9 @@ class Api::MeetingsController < ApplicationController
     end
 
     def show_bookings
-        render json: @room.bookings.where("start_date >= ?", Date.today), status: :ok
+        render json: @room, serializer: RoomBookingSerializer, status: :ok
+        # .bookings.where("start_date >= ?", Date.today), 
+        
     end
 
     private  

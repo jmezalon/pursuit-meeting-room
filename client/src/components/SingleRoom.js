@@ -4,13 +4,13 @@ import BookingCard from "./BookingCard";
 import Navbar from "./Navbar";
 
 function SingleRoom() {
-  const [bookings, setBookings] = useState([]);
+  const [room, setRoom] = useState({});
   const params = useParams();
 
   useEffect(() => {
     fetch(`/api/meeting-rooms/${params.id}/bookings`)
       .then((r) => r.json())
-      .then(setBookings);
+      .then(setRoom);
   }, [params.id]);
 
   return (
@@ -21,17 +21,15 @@ function SingleRoom() {
       <main className="navbar-body-container">
         <div className="app-nav-body-content">
           <Navbar />
-          {bookings.map((r) => (
-            <header
-              style={{ display: "flex", justifyContent: "space-between" }}
-            >
-              <strong>
-                <p>{r.meeting.name}</p>
-              </strong>
-              <p>Capacity: {r.meeting.capacity}</p>
-              <p>Floor: {r.meeting.floor}</p>
-            </header>
-          ))}
+
+          <header style={{ display: "flex", justifyContent: "space-between" }}>
+            <strong>
+              <p>{room.name}</p>
+            </strong>
+            <p>Capacity: {room.capacity}</p>
+            <p>Floor: {room.floor}</p>
+          </header>
+
           <hr
             style={{
               height: "2px",
@@ -51,15 +49,16 @@ function SingleRoom() {
             }}
           />
           <section>
-            {bookings.map((booking) => (
-              <BookingCard
-                key={booking.id}
-                id={booking.id}
-                meetingName={booking.meeting_name}
-                startDate={booking.start_date}
-                endDate={booking.end_date}
-              />
-            ))}
+            {room.bookings &&
+              room.bookings.map((booking) => (
+                <BookingCard
+                  key={booking.id}
+                  id={booking.id}
+                  meetingName={booking.meeting_name}
+                  startDate={booking.start_date}
+                  endDate={booking.end_date}
+                />
+              ))}
           </section>
         </div>
       </main>
