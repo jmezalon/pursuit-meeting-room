@@ -7,6 +7,7 @@ import Newroom from "./components/Newroom";
 
 function App() {
   const [meetingRooms, setMeetingRooms] = useState([]);
+  const [bookings, setBookings] = useState([]);
 
   useEffect(() => {
     fetch("/api/meeting-rooms")
@@ -25,7 +26,7 @@ function App() {
           <Home meetingRooms={meetingRooms} />
         </Route>
         <Route exact path="/bookings">
-          <Booking />
+          <Booking bookings={bookings} setBookings={setBookings} />
         </Route>
         <Route exact path="/meetingrooms/new">
           <Newroom

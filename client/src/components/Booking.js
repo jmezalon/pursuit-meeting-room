@@ -1,6 +1,14 @@
 import Navbar from "./Navbar";
+import { useEffect } from "react";
+import BookingCard from "./BookingCard";
 
-function Booking() {
+function Booking({ bookings, setBookings }) {
+  useEffect(() => {
+    fetch("/api/bookings")
+      .then((r) => r.json())
+      .then(setBookings);
+  }, [setBookings]);
+
   return (
     <div className="page-container">
       <header className="page-indication">
@@ -9,6 +17,17 @@ function Booking() {
       <main className="navbar-body-container">
         <div className="app-nav-body-content">
           <Navbar />
+          <section>
+            {bookings.map((book) => (
+              <BookingCard
+                key={book.id}
+                meetingName={book.meeting_name}
+                startDate={book.start_date}
+                endDate={book.end_date}
+                meetingRoom={book.meeting.name}
+              />
+            ))}
+          </section>
         </div>
       </main>
     </div>
