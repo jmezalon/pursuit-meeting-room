@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { DateTimePickerComponent } from "@syncfusion/ej2-react-calendars";
 
-function NewBookingForm({ onAddBooking, formatDate, id }) {
+function NewBookingForm({ onAddBooking, id }) {
   const minDate = new Date();
   const maxDate = new Date("12/31/2022 11:59 PM");
   const [errors, setErrors] = useState([]);
@@ -33,14 +33,22 @@ function NewBookingForm({ onAddBooking, formatDate, id }) {
       },
       body: JSON.stringify({
         meeting_name: formData.meeting_name,
-        start_date: formatDate(formData.start_date),
-        end_date: formatDate(formData.end_date),
+        start_date: formData.start_date.toString().slice(0, 21),
+        end_date: formData.end_date.toString().slice(0, 21),
         attendees: formData.attendees,
         meeting_id: parseInt(id),
       }),
     }).then((r) => {
       if (r.ok) {
-        r.json().then(onAddBooking);
+        r.json().then((data) =>
+          onAddBooking({
+            meeting_name: data.meeting_name,
+            start_date: data.start_date.toString().slice(0, 16),
+            end_date: data.end_date.toString().slice(0, 16),
+            attendees: data.attendees,
+            meeting_id: data.meeting.id,
+          })
+        );
         setErrors([]);
         setFormData({
           meeting_name: "",
@@ -50,7 +58,9 @@ function NewBookingForm({ onAddBooking, formatDate, id }) {
           meeting_id: parseInt(id),
         });
       } else {
-        r.json().then((err) => setErrors(err.errors));
+        r.json().then((err) => {
+          setErrors(err.errors);
+        });
       }
     });
   }

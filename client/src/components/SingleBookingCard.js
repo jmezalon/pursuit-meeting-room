@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import Navbar from "./Navbar";
 
-function SingleBookingCard({ formatDate, onCancelMeeting }) {
+function SingleBookingCard({ formatDate }) {
   const [booking, setBooking] = useState({});
   const [cancelClick, setCancelClick] = useState(false);
   const params = useParams();
@@ -17,11 +17,7 @@ function SingleBookingCard({ formatDate, onCancelMeeting }) {
   function handleCancelBooking() {
     fetch(`/api/bookings/${params.id}`, {
       method: "DELETE",
-    }).then(() => {
-      onCancelMeeting(params.id);
-      setCancelClick(false);
-      history.goBack();
-    });
+    }).then(setCancelClick(false), history.goBack());
   }
 
   return (
@@ -42,13 +38,15 @@ function SingleBookingCard({ formatDate, onCancelMeeting }) {
               Start:{" "}
               <span>
                 <strong>
-                  {booking.start_date && formatDate(booking.start_date)}
+                  {booking.start_date &&
+                    formatDate(booking.start_date.slice(0, 16))}
                 </strong>
               </span>
               End:{" "}
               <span>
                 <strong>
-                  {booking.end_date && formatDate(booking.end_date)}
+                  {booking.end_date &&
+                    formatDate(booking.end_date.slice(0, 16))}
                 </strong>
               </span>
               <span>Floor: {booking.meeting && booking.meeting.floor}</span>

@@ -21,15 +21,6 @@ function App() {
     setMeetingRooms([...meetingRooms, newRoom]);
   }
 
-  // function handleAddBooking(newBooking) {
-  //   console.log(newBooking);
-  //   setBookings([...bookings, newBooking]);
-  // }
-
-  function handleCancelbooking(id) {
-    setBookings(bookings.filter((b) => b.id !== id));
-  }
-
   function formatDate(date) {
     let options = {
       year: "numeric",
@@ -65,10 +56,7 @@ function App() {
           />
         </Route>
         <Route exact path="/bookings/:id">
-          <SingleBookingCard
-            formatDate={formatDate}
-            onCancelMeeting={handleCancelbooking}
-          />
+          <SingleBookingCard formatDate={formatDate} />
         </Route>
         <Route exact path="/meetingrooms/new">
           <Newroom
@@ -81,7 +69,6 @@ function App() {
           <SingleRoom
             bookings={bookings}
             setBookings={setBookings}
-            // onAddBooking={handleAddBooking}
             formatDate={formatDate}
           />
         </Route>

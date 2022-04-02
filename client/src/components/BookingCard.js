@@ -21,8 +21,8 @@ function BookingCard({
         </strong>
       )}
       <section>
-        <span>Start: {formatDate(startDate)}</span>
-        <span>End: {formatDate(endDate)}</span>
+        <span>Start: {formatDate(startDate.slice(0, 16))}</span>
+        <span>End: {formatDate(endDate.slice(0, 16))}</span>
       </section>
     </div>
   );

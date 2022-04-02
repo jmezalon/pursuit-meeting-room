@@ -4,7 +4,7 @@ import BookingCard from "./BookingCard";
 import Navbar from "./Navbar";
 import NewBookingForm from "./NewBookingForm";
 
-function SingleRoom({ formatDate, onAddBooking, bookings, setBookings }) {
+function SingleRoom({ formatDate, bookings, setBookings }) {
   const [room, setRoom] = useState({});
   const params = useParams();
 
@@ -15,7 +15,6 @@ function SingleRoom({ formatDate, onAddBooking, bookings, setBookings }) {
   }, [params.id, bookings]);
 
   function handleAddBooking(newBooking) {
-    console.log(newBooking);
     setBookings({ ...bookings, newBooking });
   }
 
