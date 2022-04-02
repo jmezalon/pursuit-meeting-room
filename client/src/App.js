@@ -1,21 +1,38 @@
 import { Switch, Route } from "react-router-dom";
+import { useState, useEffect } from "react";
 import Home from "./components/Home";
 import "./App.css";
 import Booking from "./components/Booking";
 import Newroom from "./components/Newroom";
 
 function App() {
+  const [meetingRooms, setMeetingRooms] = useState([]);
+
+  useEffect(() => {
+    fetch("/api/meeting-rooms")
+      .then((r) => r.json())
+      .then(setMeetingRooms);
+  }, []);
+
+  function handleNewRoom(newRoom) {
+    setMeetingRooms([...meetingRooms, newRoom]);
+  }
+
   return (
     <div className="App">
       <Switch>
         <Route exact path="/">
-          <Home />
+          <Home meetingRooms={meetingRooms} />
         </Route>
         <Route exact path="/bookings">
           <Booking />
         </Route>
         <Route exact path="/meetingrooms/new">
-          <Newroom />
+          <Newroom
+            meetingRooms={meetingRooms}
+            setMeetingRooms={setMeetingRooms}
+            onAddRoom={handleNewRoom}
+          />
         </Route>
       </Switch>
     </div>

@@ -1,16 +1,8 @@
 import Navbar from "./Navbar";
-import { useState, useEffect } from "react";
+
 import Roomlist from "./Roomlist";
 
-function Home() {
-  const [meetingRooms, setMeetingRooms] = useState([]);
-
-  useEffect(() => {
-    fetch("/api/meeting-rooms")
-      .then((r) => r.json())
-      .then(setMeetingRooms);
-  }, []);
-
+function Home({ meetingRooms }) {
   return (
     <div className="page-container">
       <header className="page-indication">
