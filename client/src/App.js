@@ -5,6 +5,7 @@ import "./App.css";
 import Booking from "./components/Booking";
 import Newroom from "./components/Newroom";
 import SingleRoom from "./components/SingleRoom";
+import SingleBookingCard from "./components/SingleBookingCard";
 
 function App() {
   const [meetingRooms, setMeetingRooms] = useState([]);
@@ -20,6 +21,27 @@ function App() {
     setMeetingRooms([...meetingRooms, newRoom]);
   }
 
+  function formatDate(date) {
+    let options = {
+      year: "numeric",
+      month: "numeric",
+      day: "numeric",
+      hour: "numeric",
+      minute: "numeric",
+      hour12: true,
+    };
+
+    let modifiedDate;
+    if (date) {
+      modifiedDate = new Date(date);
+    }
+
+    modifiedDate = new Intl.DateTimeFormat("en-US", options).format(
+      modifiedDate
+    );
+    return modifiedDate;
+  }
+
   return (
     <div className="App">
       <Switch>
@@ -27,7 +49,14 @@ function App() {
           <Home meetingRooms={meetingRooms} />
         </Route>
         <Route exact path="/bookings">
-          <Booking bookings={bookings} setBookings={setBookings} />
+          <Booking
+            bookings={bookings}
+            setBookings={setBookings}
+            formatDate={formatDate}
+          />
+        </Route>
+        <Route exact path="/bookings/:id">
+          <SingleBookingCard formatDate={formatDate} />
         </Route>
         <Route exact path="/meetingrooms/new">
           <Newroom
@@ -37,7 +66,7 @@ function App() {
           />
         </Route>
         <Route exact path="/meetingrooms/:id">
-          <SingleRoom />
+          <SingleRoom formatDate={formatDate} />
         </Route>
       </Switch>
     </div>

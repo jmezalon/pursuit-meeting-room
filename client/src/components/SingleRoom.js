@@ -1,9 +1,9 @@
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import BookingCard from "./BookingCard";
 import Navbar from "./Navbar";
 
-function SingleRoom() {
+function SingleRoom({ formatDate }) {
   const [room, setRoom] = useState({});
   const params = useParams();
 
@@ -55,6 +55,7 @@ function SingleRoom() {
                   key={booking.id}
                   id={booking.id}
                   meetingName={booking.meeting_name}
+                  formatDate={formatDate}
                   startDate={booking.start_date}
                   endDate={booking.end_date}
                 />

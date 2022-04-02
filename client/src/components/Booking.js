@@ -2,7 +2,7 @@ import Navbar from "./Navbar";
 import { useEffect } from "react";
 import BookingCard from "./BookingCard";
 
-function Booking({ bookings, setBookings }) {
+function Booking({ bookings, formatDate, setBookings }) {
   useEffect(() => {
     fetch("/api/bookings")
       .then((r) => r.json())
@@ -21,10 +21,12 @@ function Booking({ bookings, setBookings }) {
             {bookings.map((book) => (
               <BookingCard
                 key={book.id}
+                id={book.id}
                 meetingName={book.meeting_name}
                 startDate={book.start_date}
                 endDate={book.end_date}
                 meetingRoom={book.meeting.name}
+                formatDate={formatDate}
               />
             ))}
           </section>
