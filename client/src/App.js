@@ -21,6 +21,11 @@ function App() {
     setMeetingRooms([...meetingRooms, newRoom]);
   }
 
+  // function handleAddBooking(newBooking) {
+  //   console.log(newBooking);
+  //   setBookings([...bookings, newBooking]);
+  // }
+
   function handleCancelbooking(id) {
     setBookings(bookings.filter((b) => b.id !== id));
   }
@@ -73,7 +78,12 @@ function App() {
           />
         </Route>
         <Route exact path="/meetingrooms/:id">
-          <SingleRoom formatDate={formatDate} />
+          <SingleRoom
+            bookings={bookings}
+            setBookings={setBookings}
+            // onAddBooking={handleAddBooking}
+            formatDate={formatDate}
+          />
         </Route>
       </Switch>
     </div>

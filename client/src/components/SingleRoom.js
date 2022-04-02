@@ -2,8 +2,9 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import BookingCard from "./BookingCard";
 import Navbar from "./Navbar";
+import NewBookingForm from "./NewBookingForm";
 
-function SingleRoom({ formatDate }) {
+function SingleRoom({ formatDate, onAddBooking, bookings, setBookings }) {
   const [room, setRoom] = useState({});
   const params = useParams();
 
@@ -11,7 +12,12 @@ function SingleRoom({ formatDate }) {
     fetch(`/api/meeting-rooms/${params.id}/bookings`)
       .then((r) => r.json())
       .then(setRoom);
-  }, [params.id]);
+  }, [params.id, bookings]);
+
+  function handleAddBooking(newBooking) {
+    console.log(newBooking);
+    setBookings({ ...bookings, newBooking });
+  }
 
   return (
     <div className="page-container">
@@ -39,7 +45,13 @@ function SingleRoom({ formatDate }) {
             }}
           />
 
-          <section>{/* <BookingForm /> */}</section>
+          <section>
+            <NewBookingForm
+              onAddBooking={handleAddBooking}
+              formatDate={formatDate}
+              id={params.id}
+            />
+          </section>
           <hr
             style={{
               height: "2px",
