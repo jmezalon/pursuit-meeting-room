@@ -4,6 +4,7 @@ import Home from "./components/Home";
 import "./App.css";
 import Booking from "./components/Booking";
 import Newroom from "./components/Newroom";
+import SingleRoom from "./components/SingleRoom";
 
 function App() {
   const [meetingRooms, setMeetingRooms] = useState([]);
@@ -34,6 +35,9 @@ function App() {
             setMeetingRooms={setMeetingRooms}
             onAddRoom={handleNewRoom}
           />
+        </Route>
+        <Route exact path="/meetingrooms/:id">
+          <SingleRoom />
         </Route>
       </Switch>
     </div>

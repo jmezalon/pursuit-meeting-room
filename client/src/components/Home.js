@@ -26,6 +26,7 @@ function Home({ meetingRooms }) {
             {meetingRooms.map((room) => (
               <Roomlist
                 key={room.id}
+                id={room.id}
                 name={room.name}
                 capacity={room.capacity}
                 floor={room.floor}
