@@ -76,6 +76,7 @@ function SingleRoom({ formatDate, bookings, setBookings }) {
                   formatDate={formatDate}
                   startDate={booking.start_date}
                   endDate={booking.end_date}
+                  // floor={booking.floor}
                 />
               ))}
           </section>

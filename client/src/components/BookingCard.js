@@ -28,9 +28,11 @@ function BookingCard({
         <span>
           ⏲️ End: <strong>{formatDate(endDate.slice(0, 16))}</strong>
         </span>
-        <span>
-          🏢 Floor: <strong>{floor}</strong>
-        </span>
+        {url === "/bookings" && (
+          <span>
+            🏢 Floor: <strong>{floor}</strong>
+          </span>
+        )}
       </section>
     </div>
   );
