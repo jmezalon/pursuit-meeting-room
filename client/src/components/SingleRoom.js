@@ -27,12 +27,16 @@ function SingleRoom({ formatDate, bookings, setBookings }) {
         <div className="app-nav-body-content">
           <Navbar />
 
-          <header style={{ display: "flex", justifyContent: "space-between" }}>
+          <header id="single-room-header">
             <strong>
               <p>{room.name}</p>
             </strong>
-            <p>Capacity: {room.capacity}</p>
-            <p>Floor: {room.floor}</p>
+            <p>
+              👥 Capacity: <strong>{room.capacity}</strong>
+            </p>
+            <p>
+              🏢 Floor: <strong>{room.floor}</strong>
+            </p>
           </header>
 
           <hr

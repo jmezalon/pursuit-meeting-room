@@ -71,51 +71,54 @@ function NewBookingForm({ onAddBooking, id }) {
       action="submit-booking"
       onSubmit={handleBookingSubmit}
     >
-      <label>
-        <input
-          aria-label="meeting-name"
-          placeholder="Meeting Name"
-          name="meeting_name"
-          value={formData.meeting_name}
-          onChange={handleFormDataChange}
-          type="text"
-        />
-      </label>
+      <section className="form-inputs">
+        <label>
+          <input
+            aria-label="meeting-name"
+            placeholder="Meeting Name"
+            name="meeting_name"
+            value={formData.meeting_name}
+            onChange={handleFormDataChange}
+            type="text"
+          />
+        </label>
 
-      <label>
-        <span>Start: </span>
-        <DateTimePickerComponent
-          name="start_date"
-          placeholder="Start date and time"
-          value={formData.start_date}
-          onChange={handleFormDataChange}
-          min={minDate}
-          max={maxDate}
-        />
-      </label>
-
-      <label>
-        <span>End: </span>
-        <DateTimePickerComponent
-          name="end_date"
-          placeholder="End date and time"
-          value={formData.end_date}
-          onChange={handleFormDataChange}
-          min={minDate}
-          max={maxDate}
-        />
-      </label>
-      <label>attendees: </label>
-      <input
-        aria-label="attendees"
-        placeholder="optional"
-        name="attendees"
-        value={formData.attendees}
-        onChange={handleFormDataChange}
-        type="text"
-      />
-
-      <button>Book</button>
+        <label>
+          <span>Start: </span>
+          <DateTimePickerComponent
+            name="start_date"
+            placeholder="Start date and time"
+            value={formData.start_date}
+            onChange={handleFormDataChange}
+            min={minDate}
+            max={maxDate}
+          />
+        </label>
+      </section>
+      <section className="form-inputs">
+        <label>
+          <input
+            aria-label="attendees"
+            placeholder="attendees optional"
+            name="attendees"
+            value={formData.attendees}
+            onChange={handleFormDataChange}
+            type="text"
+          />
+        </label>
+        <label>
+          <span>End: </span>
+          <DateTimePickerComponent
+            name="end_date"
+            placeholder="End date and time"
+            value={formData.end_date}
+            onChange={handleFormDataChange}
+            min={minDate}
+            max={maxDate}
+          />
+        </label>
+      </section>
+      <button className="book-meeting-button">Book</button>
       <>
         {errors.map((e) => (
           <p key={e} style={{ color: "red" }}>

@@ -1,5 +1,9 @@
 .App {
     height: 100vh;
+    width: 104%;
+    margin-top: -1%;
+    padding-bottom: 4%;
+    margin-left: -3%;
     overflow-y: scroll; 
     overflow-x: scroll;
     background: #1C2FE4;
@@ -143,6 +147,79 @@
     width: 28%;
     display: flex;
     justify-content: space-between;
+  }
+
+  #single-room-header{
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2em;
+  }
+
+
+  /* css for forms new booking and new room  */
+
+  .submit-booking-form{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 25px;
+  }
+
+  .submit-room-form{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 25px;
+  }
+
+  #new-room-input-fields{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  #new-room-name{
+    background: #E6E6E6;
+    border: none;
+    padding: 0 13px;
+    width: 340px;
+    height: 27px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+  }
+
+  .floor-capacity-input{
+    background: #E6E6E6;
+    border: none;
+    padding: 0 13px;
+    width: 60px;
+    height: 27px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+  }
+
+  .form-inputs{
+      display: flex;
+      justify-content: space-between;
+  }
+
+  .form-inputs > label > input, .form-inputs > label > span > input {
+      background: #E6E6E6;
+      border: none;
+      padding: 0 5px;
+      width: 290px;
+      height: 27px;
+      margin-bottom: 25px;
+      border-radius: 10px;
+  }
+
+  .book-meeting-button{
+    background: #1C2FE4;
+    color: white;
+    width: 25%;
+    border: none;
+    border-radius: 30px;
+    height: 30px;
+    margin-top: 15px;
+    margin-left: 38%;
+    cursor: pointer;
   }
 
   /* navbar css */
