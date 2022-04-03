@@ -56,7 +56,11 @@ function App() {
           />
         </Route>
         <Route exact path="/bookings/:id">
-          <SingleBookingCard formatDate={formatDate} />
+          <SingleBookingCard
+            formatDate={formatDate}
+            bookings={bookings}
+            setBookings={setBookings}
+          />
         </Route>
         <Route exact path="/meetingrooms/new">
           <Newroom

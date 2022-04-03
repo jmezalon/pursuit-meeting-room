@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import Navbar from "./Navbar";
 
-function SingleBookingCard({ formatDate }) {
+function SingleBookingCard({ formatDate, bookings, setBookings }) {
   const [booking, setBooking] = useState({});
   const [cancelClick, setCancelClick] = useState(false);
   const params = useParams();
@@ -17,7 +17,11 @@ function SingleBookingCard({ formatDate }) {
   function handleCancelBooking() {
     fetch(`/api/bookings/${params.id}`, {
       method: "DELETE",
-    }).then(setCancelClick(false), history.goBack());
+    }).then(
+      () => setBookings(bookings.filter((b) => b.id !== params.id)),
+      setCancelClick(false),
+      history.goBack()
+    );
   }
 
   return (

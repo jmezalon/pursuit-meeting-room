@@ -42,11 +42,11 @@ function NewBookingForm({ onAddBooking, id }) {
       if (r.ok) {
         r.json().then((data) =>
           onAddBooking({
+            id: data.id,
             meeting_name: data.meeting_name,
             start_date: data.start_date.toString().slice(0, 16),
             end_date: data.end_date.toString().slice(0, 16),
             attendees: data.attendees,
-            meeting_id: data.meeting.id,
           })
         );
         setErrors([]);

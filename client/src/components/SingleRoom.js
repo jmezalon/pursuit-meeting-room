@@ -15,7 +15,8 @@ function SingleRoom({ formatDate, bookings, setBookings }) {
   }, [params.id, bookings]);
 
   function handleAddBooking(newBooking) {
-    setBookings({ ...bookings, newBooking });
+    console.log(newBooking);
+    setBookings([...bookings, newBooking]);
   }
 
   return (

@@ -25,7 +25,7 @@ function Booking({ bookings, formatDate, setBookings }) {
                 meetingName={book.meeting_name}
                 startDate={book.start_date}
                 endDate={book.end_date}
-                meetingRoom={book.meeting.name}
+                meetingRoom={book.meeting && book.meeting.name}
                 formatDate={formatDate}
               />
             ))}

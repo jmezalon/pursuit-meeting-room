@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useRouteMatch } from "react-router-dom";
 
 function BookingCard({
   meetingName,
@@ -8,14 +8,14 @@ function BookingCard({
   formatDate,
   meetingRoom,
 }) {
-  const params = useParams();
+  const { url } = useRouteMatch();
 
   return (
     <div className="bookcard-list-items">
       <Link to={`/bookings/${id}`}>
         <h3>{meetingName}</h3>
       </Link>
-      {!params.id && (
+      {url !== "/bookings/:id" && (
         <strong>
           <p>{meetingRoom}</p>
         </strong>
