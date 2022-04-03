@@ -9,7 +9,7 @@
 
   .page-indication > h1 {
     background: #FF7701;
-    width: 30%;
+    width: 35%;
     height: 55px;
     margin-top: 3%;
     border-radius: 0 15px 15px 0;
@@ -22,7 +22,7 @@
     background: white;
     margin: 40px 100px;
     width: 85%;
-    height: 150vh;
+    height: 140vh;
     border-radius: 15px;
     display: flex;
     justify-content: center;
@@ -33,6 +33,118 @@
       width: 80%;
   }
 
+
+  /* cards css for home and booking */
+
+  .single-list-items{
+    background: #E6E6E6;
+    padding: 0px 10px;
+    margin: 25px 0;
+    height: 110px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 22px;
+    box-shadow: 8px 15px 15px -10px rgba(66,66,66,1)
+  }
+
+  .bookcard-list-items{
+    background: #E6E6E6;
+    padding: 0px 10px;
+    margin: 25px 0;
+    height: 150px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 22px;
+    box-shadow: 8px 15px 15px -10px rgba(66,66,66,1)
+  }
+
+  .single-booking-item{
+    background: #E6E6E6;
+    padding: 0px 10px;
+    margin: 25px 0;
+    height: 150px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 22px;
+    box-shadow: 8px 15px 15px -10px rgba(66,66,66,1)
+  }
+
+  .room-name{
+    margin-top: -22px;
+    font-size: 17px;
+  }
+
+  .booking-details{
+    display: flex;
+    justify-content: space-between;
+    width: 94%;
+    position: relative;
+  }
+
+  a {
+      color: #1C2FE4;
+      text-decoration: none;
+      font-size: 1.2em;
+  }
+
+  #single-meeting-name{
+    color: #1C2FE4;
+    font-size: 1.5em;
+  }
+
+  #cancel-meeting-button{
+    background: #C1111F;
+    color: white;
+    width: 25%;
+    margin-left: 38%;
+    border: none;
+    border-radius: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+
+  #cancel-confirmation{
+      text-align: center;
+  }
+
+  #options{
+      display: flex;
+      justify-content: space-evenly;
+  }
+
+  #yes-button{
+    background: #C1111F;
+    color: white;
+    width: 25%;
+    border: none;
+    border-radius: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+
+  #no-button{
+    background: lightgreen;
+    color: white;
+    width: 25%;
+    border: none;
+    border-radius: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .rooms-details{
+    width: 28%;
+    display: flex;
+    justify-content: space-between;
+  }
+
   /* navbar css */
   .navbar-container {
     background: #64676B;
@@ -40,7 +152,6 @@
     justify-content: space-between;
     align-items: center;
     height: 65px;
-    /* width: 76%; */
     border-radius: 10px;
     margin: 40px 0;
     padding: 2px 0;

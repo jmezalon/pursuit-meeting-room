@@ -27,45 +27,60 @@ function SingleBookingCard({ formatDate, bookings, setBookings }) {
   return (
     <div className="page-container">
       <header className="page-indication">
-        <h1>Single Meeting Room</h1>
+        <h1>Single Booking</h1>
       </header>
       <main className="navbar-body-container">
         <div className="app-nav-body-content">
           <Navbar />
 
-          <div className="bookcard-list-items">
-            <h3>{booking.meeting_name && booking.meeting_name}</h3>
-            <strong>
+          <div className="single-booking-item">
+            <h3 id="single-meeting-name">
+              {booking.meeting_name && booking.meeting_name}
+            </h3>
+            <strong className="room-name">
               <p>{booking.meeting && booking.meeting.name}</p>
             </strong>
-            <section>
-              Start:{" "}
+            <section className="booking-details">
               <span>
+                ⏲️ Start:{" "}
                 <strong>
                   {booking.start_date &&
                     formatDate(booking.start_date.slice(0, 16))}
                 </strong>
               </span>
-              End:{" "}
               <span>
+                ⏲️ End:{" "}
                 <strong>
                   {booking.end_date &&
                     formatDate(booking.end_date.slice(0, 16))}
                 </strong>
               </span>
-              <span>Floor: {booking.meeting && booking.meeting.floor}</span>
+              <span>
+                🏢 Floor:{" "}
+                <strong>{booking.meeting && booking.meeting.floor}</strong>
+              </span>
             </section>
-
-            {!cancelClick ? (
-              <button onClick={() => setCancelClick(true)}>Cancel</button>
-            ) : (
-              <>
-                <p>Are you sure?</p>
-                <button onClick={handleCancelBooking}>Yes</button>
-                <button onClick={() => setCancelClick(false)}>No</button>
-              </>
-            )}
           </div>
+          {!cancelClick ? (
+            <button
+              id="cancel-meeting-button"
+              onClick={() => setCancelClick(true)}
+            >
+              Cancel
+            </button>
+          ) : (
+            <div id="cancel-confirmation">
+              <p>Are you sure?</p>
+              <div id="options">
+                <button id="yes-button" onClick={handleCancelBooking}>
+                  Yes
+                </button>
+                <button id="no-button" onClick={() => setCancelClick(false)}>
+                  No
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       </main>
     </div>

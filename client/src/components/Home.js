@@ -11,9 +11,9 @@ function Home({ meetingRooms }) {
       <main className="navbar-body-container">
         <div className="app-nav-body-content">
           <Navbar />
-          <section>
+          {/* <section>
             <p>extra credit find room will be here</p>
-          </section>
+          </section> */}
           <hr
             style={{
               height: "2px",

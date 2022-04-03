@@ -45,6 +45,9 @@ function SingleRoom({ formatDate, bookings, setBookings }) {
           />
 
           <section>
+            <strong>
+              <p>Book Room</p>
+            </strong>
             <NewBookingForm
               onAddBooking={handleAddBooking}
               formatDate={formatDate}

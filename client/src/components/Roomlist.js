@@ -6,9 +6,13 @@ function Roomlist({ name, id, capacity, floor }) {
       <Link to={`/meetingrooms/${id}`}>
         <h3>{name}</h3>
       </Link>
-      <section>
-        <span>Floor: {floor}</span>
-        <span>Capacity: {capacity}</span>
+      <section className="rooms-details">
+        <span>
+          🏢 Floor: <strong>{floor}</strong>
+        </span>
+        <span>
+          👥 Capacity: <strong>{capacity}</strong>
+        </span>
       </section>
     </div>
   );

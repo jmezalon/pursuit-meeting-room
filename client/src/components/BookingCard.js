@@ -7,22 +7,30 @@ function BookingCard({
   endDate,
   formatDate,
   meetingRoom,
+  floor,
 }) {
   const { url } = useRouteMatch();
-
+  const bottom = url !== "/bookings" ? "-32px" : "0";
   return (
     <div className="bookcard-list-items">
       <Link to={`/bookings/${id}`}>
         <h3>{meetingName}</h3>
       </Link>
       {url !== "/bookings/:id" && (
-        <strong>
+        <strong className="room-name">
           <p>{meetingRoom}</p>
         </strong>
       )}
-      <section>
-        <span>Start: {formatDate(startDate.slice(0, 16))}</span>
-        <span>End: {formatDate(endDate.slice(0, 16))}</span>
+      <section className="booking-details" style={{ bottom: `${bottom}` }}>
+        <span>
+          ⏲️ Start: <strong>{formatDate(startDate.slice(0, 16))}</strong>
+        </span>
+        <span>
+          ⏲️ End: <strong>{formatDate(endDate.slice(0, 16))}</strong>
+        </span>
+        <span>
+          🏢 Floor: <strong>{floor}</strong>
+        </span>
       </section>
     </div>
   );
