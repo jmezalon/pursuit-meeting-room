@@ -1,7 +1,7 @@
 .App {
     height: 100vh;
     overflow-y: scroll; 
-    overflow-x: hidden;
+    overflow-x: scroll;
     background: #1C2FE4;
   }
 
